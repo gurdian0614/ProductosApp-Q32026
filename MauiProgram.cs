@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using ProductosApp_Q32026.Services;
+using ProductosApp_Q32026.ViewModels;
+using ProductosApp_Q32026.Views;
 
 namespace ProductosApp_Q32026;
 
@@ -18,6 +20,10 @@ public static class MauiProgram
 
 		// Una sola conexion a la base de datos
 		builder.Services.AddSingleton<ProductoService>();
+
+		// Transient
+		builder.Services.AddTransient<ProductoViewModel>();
+		builder.Services.AddTransient<ProductoView>();
 
 #if DEBUG
 		builder.Logging.AddDebug();
